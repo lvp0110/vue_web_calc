@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Acoustic design application</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="style.css"> 
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.27/sweetalert2.min.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    -->
+        <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">   
+    </head>
+    <body>
+        <a href="https://www.acoustic.ru/"><img class="logo" src="img/logo AG-01.svg" alt="" ></a>
+        <section id="app" >
+            <div class="category">
+                <button v-for="elem in getActiveCategories" :value="elem.id" :style="{background:elem.background}"
+                    :class="{start_page:currentCategory == elem.id ? false : true , active: currentCategory == elem.id ? true : false}" 
+                    @click="currentCategory = currentCategory ? 0 : $event.target.value " >{{ elem.title}} 
+                </button>        
+            </div>
+            <div class="subcategory">
+                <button v-for="elem in getSubCategories" :value="elem.id" 
+                    :class="{ type_page: currentSubCategory== elem.id ? false : true ,type_active: currentSubCategory == elem.id ? true : false}" 
+                    @click="currentSubCategory = currentSubCategory ? 0 : $event.target.value ">{{ elem.title }}
+                    <img v-if="currentSubCategory == 0" :src= "elem.img" alt="" class="img-icon-type" >
+                </button> 
+            </div>
+            <div class="items">
+                <button v-for="elem in getItems" :value="elem.id" 
+                    :class="{ const_page: currentItems == elem.id ? false : true , const_active: currentItems == elem.id ? true : false}" 
+                     @click="currentItems = currentItems ? 0: $event.target.value">
+                    <p style="z-index: 1; color: revert;pointer-events: none;">{{ elem.title }}</p> 
+                    <img v-if="template == null" :src="elem.img" alt="" class="img-icon">
+                </button>
+            </div>
+            <div class="inputsFloorAll" v-if="template == 1">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+            </div>
+            <div class="inputsFloorAll" v-if="template == 111">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+            </div>
+            <div class="inputsC2K2" v-else-if="template == 2">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" checked><label class="label">К2 по периметру</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label">Вибростек по периметру</label>
+                <hr>
+                <h4>длина коммуникаций шириной до 80 мм</h4>
+                <input type="number" placeholder="размер,мм">
+                <span>✔ для коммукникаций шире 80 мм рекомендуется использовать конструкцию пола с применением материала Шумопласт</span>
+            </div>
+            <div class="inputsC2K2" v-else-if="template == 2.2">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" checked><label class="label">К2 по периметру</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label">Вибростек по периметру</label>
+            </div>
+            <div class="inputsC2K2" v-else-if="template == 2.1">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" checked><label class="label">Акуфлор S20 по периметру</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label">Вибростек по периметру</label>
+                <hr>
+                <h4>длина коммуникаций шириной до 80 мм</h4>
+                <input type="number" placeholder="размер,мм" >
+                <span>✔ для коммукникаций шире 80 мм рекомендуется использовать конструкцию пола с применением материала Шумопласт</span>
+            </div>
+            <div class="inputsFloor615" v-else-if="template == 3">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" checked><label class="label" >&nbsp; с применением материала Silomer</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label">&nbsp; с применением опор Виброфлекс</label>
+            </div>
+            <div class="inputsFloorSplast" v-else-if="template == 9">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" checked><label class="label" >толщина слоя 20 мм</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label">толщина слоя 30 мм</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label">толщина слоя 40 мм</label>
+            </div>
+            <div class="inputsTehno" v-else-if="template == 9.1">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" checked><label class="label" >Шумостоп-Техно 350</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label" >Шумостоп-Техно 600</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label" >Шумостоп-Техно 1200</label>
+            </div>
+            <div class="ceilingZips" v-else-if="template == 4">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+            </div>
+            <div class="ceiling" v-else-if="template == 5">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <h4> дополнительный отступ конструкции от перекрытия</h4>
+                <input type="number" placeholder="размер,мм">
+                <hr>
+                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n8" name ="name1" checked><label class="label">материал Саундлайн dB</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
+            </div>
+            <div class="frameZips" v-else-if="template == 6">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+            </div>
+            <div class="frame50" v-else-if="template == 50">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 3 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 3,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 4 м)</label>
+                <input class="checkbox" type="checkbox" id = "n4" name ="name"><label class="label"> добавить сдвоенный каркас </label>
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+                <hr>
+                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <input class="radio" type="radio" @change ="materialReplacement  = $event.target.value" id = "n8" name ="name1" checked ><label class="label">материал Саундлайн dB </label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн </label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн </label>
+            </div>
+            <div class="frame75" v-else-if="template == 75">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 3,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 4 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 4,5 м)</label>
+                <input class="checkbox" type="checkbox" id = "n4" name ="name"><label class="label"> добавить сдвоенный каркас</label>
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+                <hr>
+                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" checked><label class="label">материал Саундлайн dB</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+            </div>
+            <div class="frame100" v-else-if="template == 100">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600"checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 4,25 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 5,5 м)</label>
+                <input class="checkbox" type="checkbox" id = "n4" name ="name"><label class="label"> добавить сдвоенный каркас</label>
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+                <hr>
+                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" checked ><label class="label">материал Саундлайн dB</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+            </div>
+            <div class="frameVibr" v-else-if="template == 101">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм</span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n5" name ="name" value="600" checked><label  class="label">шаг профиля 600 мм<br>(макс.высота конструкции 10 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n6" name ="name" value="400"><label  class="label">шаг профиля 400 мм<br>(макс.высота конструкции 10 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n7" name ="name" value="300"><label  class="label">шаг профиля 300 мм<br>(макс.высота конструкции 10 м)</label>
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+                <hr>
+                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" value="600" checked><label class="label">материал Саундлайн dB</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1" value="400"><label class="label">замена на 1 лист Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+            </div>
+            <div class="partittion50" v-else-if="template == 50.1">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 4 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 6 м)</label>
+                <input class="checkbox" type="checkbox" id = "n4" name ="name"><label class="label">добавить сдвоенный каркас</label>
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+                <hr>
+                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" value="600" checked><label class="label">материал Саундлайн dB</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+            </div>
+            <div class="partittion75" v-else-if="template == 75.1">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 5,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 6,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 7,5 м)</label>
+                <input class="checkbox" type="checkbox" id = "n4" name ="name"><label class="label">добавить сдвоенный каркас</label>
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+                <hr>
+                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1"  checked><label class="label">материал Саундлайн dB</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+            </div>
+            <div class="partittion100" v-else-if="template == 100.1">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 6,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8,5 м)</label>
+                <input class="checkbox" type="checkbox" id = "n4" name ="name"><label class="label">добавить сдвоенный каркас</label>
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+                <hr>
+                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" checked><label class="label">материал Саундлайн dB</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+            </div>
+            <div class="partittionWave" v-else-if="template == 101.1">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм</span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n5" name ="name" value="600" checked><label class="label">шаг профиля 600 мм<br>(макс.высота конструкции 6,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n6" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n7" name ="name"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8,5 м)</label>
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+                <hr>
+                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" value="600" checked><label class="label">материал Саундлайн dB</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1" value="400"><label class="label">замена на 1 лист Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1" value="300"><label class="label">замена на 2 листа Аку-лайн</label>
+            </div>
+            <div class="partittion50.2" v-else-if="template == 50.2">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм</span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n5" name ="name" value="600" checked><label class="label">шаг профиля 600 мм<br>(макс.высота конструкции 4,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n6" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 5,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n7" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 6,5 м)</label>
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+                <hr>
+                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" checked ><label class="label">материал Саундлайн dB</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+            </div>
+            <div class="partittion75.2" v-else-if="template == 75.2">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм</span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n5" name ="name" value="600" checked ><label class="label">шаг профиля 600 мм<br>(макс.высота конструкции 6 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n6" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n7" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8 м)</label>
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+                <hr>
+                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" checked ><label class="label">материал Саундлайн dB</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+            </div>
+            <div class="partittion100.2" v-else-if="template == 100.2">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм</span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n5" name ="name" value="600" checked ><label class="label">шаг профиля 600 мм<br>(макс.высота конструкции 6,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n6" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n7" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8,5 м)</label>
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+                <hr>
+                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" checked ><label class="label">материал Саундлайн dB</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+            </div>
+            <div class="framedBx" v-else-if="template == 8.1">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n5" name ="name" value="600" checked><label class="label">шаг профиля 600 мм<br>(макс.высота конструкции 3 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n6" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 4 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n7" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 5 м)</label>
+                <hr>
+                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
+                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+            </div>
+            
+            <div>
+                <button v-if="template != null" @click="addConstrToCalc" class="counter__button_plus">добавить</button>
+            </div> 
+            <div  v-if="tableConstrToCalc != null" class="tbl-in"><hr>
+                <table class="data">
+                    <tr>
+                        <div v-for="counterConstr in ConstrToCalc" class="counter_input">{{ConstrToCalc.length}}</div>
+                        <th colspan="2" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок конструкций</th>
+                    </tr>
+                    <tr>
+                        <th>шифр</th>
+                        <!-- <th> </th> -->
+                        <th>название</th>
+                        <th > </th>  
+                        <th></th>
+                    </tr>
+                    <tr v-for="constR in ConstrToCalc">
+                        <td style="text-align: right;">{{constR.ag_id}}</td>
+                        <!-- <td style="text-align: left;">{{constR.id}}</td> -->
+                        <td style="text-align: center;">{{constR.title}} ,{{constR.lenX}} x {{constR.lenY}}{{constR.lenZ}}</td>
+                        <td ><img :src="constR.imgBlack" width="20" alt=""></td>
+                        <td >
+                            <input type="button" :value="constR.id" class="counter__button_minus" @click="delConstrFromList($event.target.value)"> 
+                                <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delConstrFromList($event.target.value)">
+                            </input>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div  v-if="tableConstrToCalc != null" class="tbl-in"><hr>
+                <table class="data">
+                    <tr >
+                        <th colspan="5" style="font-size: 14px;font-weight: 500;">cписок материалов</th>
+                    </tr>
+                    <tr>
+                        <th>№</th>
+                        <th>артикул</th>
+                        <th>название</th>
+                        <th>кол-во</th>
+                        <th>ед.изм</th>
+                    </tr>
+                    <tr v-for="Material in calculatedMaterials">
+                        <td>{{Material.id}}</td>
+                        <td>{{ Material.code}}</td>
+                        <td>{{ Material.name}}</td>
+                        <td>{{ Material.quantity}}</td>
+                        <td>{{ Material.units}}</td>
+                    </tr>
+                </table>
+            </div> 
+            <div>
+                <button v-if="template != null" onClick="tableToExcel()" class="add_design_button">Excel</button>
+            </div>
+        </section>
+
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="script_vue.js"></script>
+        <script src="table2excel.js"></script>
+        <script>
+            function tableToExcel(){
+                var table2excel = new Table2Excel();
+                table2excel.export(document.querySelectorAll("table.data"));
+            }
+        </script>
+    </body>
+</html>
