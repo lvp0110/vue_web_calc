@@ -19,10 +19,10 @@ const App = {
                 idType: '',
                 title: '',
                 type: '',
-                lenX: null,
-                lenXp: null,
-                lenY: null,
-                lenZ: null,
+                lenX: 0,
+                lenXp: 0,
+                lenY: 0,
+                lenZ: 0,
                 lenZp: null,
                 description: '',
                 img: '',
@@ -34,9 +34,9 @@ const App = {
                 idType: '',
                 title: '',
                 type: '',
-                lenX: null,
-                lenY: null,
-                lenZ: null,
+                lenX: 0,
+                lenY: 0,
+                lenZ: 0,
                 description: '',
                 img: '',
                 step: null,
@@ -44,24 +44,24 @@ const App = {
             },
             constrSent:{
                 Code    :  '',
-                LenX   :   null,
-                LenY   :   null,
-                LenZ    :  null,
+                LenX   :   0,
+                LenY   :   0,
+                LenZ    :  0,
                 dframe  :  false,
-                Area    :  null,
-                Perimeter: null,
-                step    :  null,
+                Area    :  0,
+                Perimeter: 0,
+                step    :  0,
 
             },
             constSentZero:{
                 Code    :  '',
-                LenX   :   null,
-                LenY   :   null,
-                LenZ    :  null,
+                LenX   :   0,
+                LenY   :   0,
+                LenZ    :  0,
                 dframe  :  false,
-                Area    :  null,
-                Perimeter: null,
-                step    :  null,
+                Area    :  0,
+                Perimeter: 0,
+                step    :  0,
 
             },
             Categories: [
@@ -694,20 +694,20 @@ const App = {
                 let StepProfile = this.Items.find((el)=>el.id == this.currentItems);
                 this.constR.step = StepProfile.step;
 
-                this.constrSent.Code = this.constR.Code;
-                this.constrSent.LenX = this.constR.LenX;
-                this.constrSent.LenY = this.constR.LenY;
-                this.constrSent.LenZ = this.constR.LenZ;
-                this.constrSent.dframe = this.constR.dframe;
-                this.constrSent.Area = this.constR.Area;
-                this.constrSent.Perimeter = this.constR.Perimeter;
-                this.constrSent.step = this.constR.step;
+                this.constrSent.Code = this.constR.ag_id;
+                this.constrSent.LenX = this.constR.lenX;
+                this.constrSent.LenY = this.constR.lenY;
+                this.constrSent.LenZ = this.constR.lenZ;
+                // this.constrSent.dframe = this.constR.description;
+                // this.constrSent.Area = this.constR.ag_id;
+                // this.constrSent.Perimeter = this.constR.Perimeter;
+                // this.constrSent.step = this.constR.step;
 
                 this.ConstrToCalcToSent.push({...this.constrSent});
                 this.constrSent = { ...this.constSentZero};
 
                 this.ConstrToCalc.push({...this.constR}); 
-                
+                console.log(this.ConstrToCalc);
                 this.constR = { ...this.constRZero};
 
                 this.calcConstruction(this.ConstrToCalcToSent);
