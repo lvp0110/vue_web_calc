@@ -710,7 +710,7 @@ const App = {
                 
                 this.constR = { ...this.constRZero};
 
-                this.calcConstruction(ConstrToCalcToSent);
+                this.calcConstruction(this.ConstrToCalcToSent);
                 
             }
             
