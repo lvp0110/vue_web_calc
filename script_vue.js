@@ -711,6 +711,7 @@ const App = {
                 this.constR = { ...this.constRZero};
 
                 this.calcConstruction(this.ConstrToCalcToSent);
+                console.log(this.ConstrToCalcToSent);
                 
             }
             
