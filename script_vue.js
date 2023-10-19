@@ -12,6 +12,7 @@ const App = {
             template:null,
             profileStep: 600,
             counters:null,
+            ConstrToCalcToSent:[],
             ConstrToCalc: [],
             constR:{
                 id: '',
@@ -40,6 +41,28 @@ const App = {
                 img: '',
                 step: null,
                 ag_id:'',
+            },
+            constrSent:{
+                Code    :  '',
+                LenX   :   null,
+                LenY   :   null,
+                LenZ    :  null,
+                dframe  :  false,
+                Area    :  null,
+                Perimeter: null,
+                step    :  null,
+
+            },
+            constSentZero:{
+                Code    :  '',
+                LenX   :   null,
+                LenY   :   null,
+                LenZ    :  null,
+                dframe  :  false,
+                Area    :  null,
+                Perimeter: null,
+                step    :  null,
+
             },
             Categories: [
                 { id: 1, title: 'РЕШЕНИЯ ПО ЗВУКОИЗОЛЯЦИИ',background:'#248CB9' },
@@ -643,9 +666,9 @@ const App = {
             return null;
            
         } ,
-        calcConstruction()
+        calcConstruction(constrList)
         {
-            this.request('http://localhost:8080/constr/calc', 'get', null, (data) => this.calculatedMaterials = data)
+            this.request('http://localhost:3005/api/v1/calcQuantity', 'post', constrList, (data) => this.calculatedMaterials = data)
         },
         addConstrToCalc() 
         {
@@ -670,13 +693,24 @@ const App = {
 
                 let StepProfile = this.Items.find((el)=>el.id == this.currentItems);
                 this.constR.step = StepProfile.step;
-                
+
+                this.constrSent.Code = this.constR.Code;
+                this.constrSent.LenX = this.constR.LenX;
+                this.constrSent.LenY = this.constR.LenY;
+                this.constrSent.LenZ = this.constR.LenZ;
+                this.constrSent.dframe = this.constR.dframe;
+                this.constrSent.Area = this.constR.Area;
+                this.constrSent.Perimeter = this.constR.Perimeter;
+                this.constrSent.step = this.constR.step;
+
+                this.ConstrToCalcToSent.push({...this.constrSent});
+                this.constrSent = { ...this.constSentZero};
+
                 this.ConstrToCalc.push({...this.constR}); 
                 
                 this.constR = { ...this.constRZero};
-                console.log(this.ConstrToCalc);
 
-                this.calcConstruction();
+                this.calcConstruction(ConstrToCalcToSent);
                 
             }
             
@@ -700,6 +734,7 @@ const App = {
         {
             this.currentItems = e.target.value;
         },
+
         async  request(url, method, data, callback)
         {
             let setting = null;
