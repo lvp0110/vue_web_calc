@@ -450,7 +450,7 @@ const App = {
                 {
                     id: 613, 
                     title: 'ЗИПС-ПОЛ Вектор',
-                    descriptio: 'Сборная звукоизолирующая система ЗИПС-ПОЛ Вектор',
+                    description: 'Сборная звукоизолирующая система ЗИПС-ПОЛ Вектор',
                     c_id:'F',
                     template:111,
                     img: 'img/Img_constr/floor/Z_Vector.png',
@@ -693,7 +693,8 @@ const App = {
 
                 let StepProfile = this.Items.find((el)=>el.id == this.currentItems);
                 this.constR.step = StepProfile.step;
-
+                
+                this.constR.step = +this.profileStep;
                 this.constrSent.Code = this.constR.ag_id;
                 this.constrSent.LenX = this.constR.lenX;
                 this.constrSent.LenY = this.constR.lenY;
@@ -701,7 +702,7 @@ const App = {
                 // this.constrSent.dframe = this.constR.description;
                 // this.constrSent.Area = this.constR.ag_id;
                 // this.constrSent.Perimeter = this.constR.Perimeter;
-                // this.constrSent.step = this.constR.step;
+                this.constrSent.step = this.constR.step;
 
                 this.ConstrToCalcToSent.push({...this.constrSent});
                 this.constrSent = { ...this.constSentZero};
