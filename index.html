@@ -346,8 +346,8 @@
                         <th>кол-во</th>
                         <th>ед.изм</th>
                     </tr>
-                    <tr v-for="Material in calculatedMaterials">
-                        <td>{{Material.id}}</td>
+                    <tr v-for="Material in calculatedMaterials.data">
+                        <td>{{Material.length}}</td>
                         <td>{{ Material.code}}</td>
                         <td>{{ Material.name}}</td>
                         <td>{{ Material.quantity}}</td>
