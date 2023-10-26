@@ -668,7 +668,7 @@ const App = {
         } ,
         calcConstruction(constrList)
         {
-            this.request('http://localhost:3005/api/v1/calcQuantity', 'post', constrList, (data) => this.calculatedMaterials = data)
+            this.request('http://158.160.77.34:3005/api/v1/calcQuantity', 'post', constrList, (data) => this.calculatedMaterials = data)
         },
         addConstrToCalc() 
         {
