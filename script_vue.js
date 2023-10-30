@@ -28,6 +28,7 @@ const App = {
                 img: '',
                 step: null,
                 ag_id:'',
+                key_id:null,
             },
             constRZero:{
                 id: '',
@@ -41,6 +42,7 @@ const App = {
                 img: '',
                 step: null,
                 ag_id:'',
+                key_id:null,
             },
             constrSent:{
                 Code    :  '',
@@ -593,10 +595,25 @@ const App = {
     },
     
     methods: {
+        setConstrFromCalcToSent(){
+                this.constR.step = +this.profileStep;
+                this.constrSent.Code = this.constR.ag_id;
+                this.constrSent.LenX = this.constR.lenX;
+                this.constrSent.LenY = this.constR.lenY;
+                this.constrSent.LenZ = this.constR.lenZ;
+                this.constrSent.step = this.constR.step;
+        },
         delConstrFromList(idConstr)
         {   
-            let indexToDel = this.ConstrToCalc.findIndex((el)=>el.id == idConstr);
-            this.ConstrToCalc.splice(indexToDel - 1,1);
+            let indexToDel = this.ConstrToCalc.findIndex((el)=>el.key_id == idConstr);
+            this.ConstrToCalc.splice(indexToDel ,1);
+            this.ConstrToCalcToSent.splice(indexToDel ,1);
+            // this.ConstrToCalc = this.ConstrToCalc.filter((el) => el.key_id != idConstr)
+            // this.ConstrToCalc = this.ConstrToCalc.filter((el) => el.key_id != idConstr)
+            this.calcConstruction(this.ConstrToCalcToSent);
+
+            console.log(idConstr);
+            console.log(indexToDel);
             console.log(this.ConstrToCalc);
         },
         checkInput(){
@@ -681,7 +698,7 @@ const App = {
 
                 // let Id = this.Items.find((el)=>el.id == this.currentItems); 
                 // this.constR.id = Id.id;
-
+                this.constR.key_id = Date.now();
                 let Constr = this.Items.find((el)=>el.id == this.currentItems); 
                 this.constR.title = Constr.title;
 
@@ -694,15 +711,12 @@ const App = {
                 let StepProfile = this.Items.find((el)=>el.id == this.currentItems);
                 this.constR.step = StepProfile.step;
                 
-                this.constR.step = +this.profileStep;
-                this.constrSent.Code = this.constR.ag_id;
-                this.constrSent.LenX = this.constR.lenX;
-                this.constrSent.LenY = this.constR.lenY;
-                this.constrSent.LenZ = this.constR.lenZ;
+                this.setConstrFromCalcToSent();
+               
                 // this.constrSent.dframe = this.constR.description;
                 // this.constrSent.Area = this.constR.ag_id;
                 // this.constrSent.Perimeter = this.constR.Perimeter;
-                this.constrSent.step = this.constR.step;
+                // this.constrSent.step = this.constR.step;
 
                 this.ConstrToCalcToSent.push({...this.constrSent});
                 this.constrSent = { ...this.constSentZero};

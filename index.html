@@ -321,14 +321,13 @@
                         <th > </th>  
                         <th></th>
                     </tr>
-                    <tr v-for="constR in ConstrToCalc">
+                    <tr v-for="constR in ConstrToCalc" :key="constR.key_id">
                         <td style="text-align: right;">{{constR.ag_id}}</td>
-                        <!-- <td style="text-align: left;">{{constR.id}}</td> -->
                         <td style="text-align: center;">{{constR.title}} ,{{constR.lenX}} x {{constR.lenY}}{{constR.lenZ}}</td>
                         <td ><img :src="constR.imgBlack" width="20" alt=""></td>
                         <td >
-                            <input type="button" :value="constR.id" class="counter__button_minus" @click="delConstrFromList($event.target.value)"> 
-                                <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delConstrFromList($event.target.value)">
+                            <input  type="button" class="counter__button_minus" > 
+                                <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delConstrFromList(constR.key_id)">
                             </input>
                         </td>
                     </tr>
@@ -347,7 +346,7 @@
                         <th>ед.изм</th>
                     </tr>
                     <tr v-for="Material in calculatedMaterials.data">
-                        <td>{{Material.Id}}</td>
+                        <td>{{Material.id}}</td>
                         <td>{{ Material.Code}}</td>
                         <td>{{ Material.Name}}</td>
                         <td>{{ Material.Quantity}}</td>
