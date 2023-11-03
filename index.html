@@ -45,27 +45,43 @@
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
             </div>
-            <div class="inputsC2K2" v-else-if="template == 2">
+            <div class="inputsC2K2" v-else-if="template == 607.1">
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" checked><label class="label">К2 по периметру</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label">Вибростек по периметру</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F607" checked><label class="label">К2 по периметру</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F607_vibrostek"><label class="label">Вибростек по периметру</label>
                 <hr>
                 <h4>длина коммуникаций шириной до 80 мм</h4>
                 <input type="number" placeholder="размер,мм">
                 <span>✔ для коммукникаций шире 80 мм рекомендуется использовать конструкцию пола с применением материала Шумопласт</span>
             </div>
-            <div class="inputsC2K2" v-else-if="template == 2.2">
+            <div class="inputsC2K2" v-else-if="template == 608.1">
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" checked><label class="label">К2 по периметру</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label">Вибростек по периметру</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F608" checked><label class="label">К2 по периметру</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F608_vibrostek"><label class="label">Вибростек по периметру</label>
+            </div>
+            <div class="inputsC2K2" v-else-if="template == 609.1">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F609" checked><label class="label">К2 по периметру</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F609_vibrostek"><label class="label">Вибростек по периметру</label>
+                <hr>
+                <h4>длина коммуникаций шириной до 80 мм</h4>
+                <input type="number" placeholder="размер,мм">
+                <span>✔ для коммукникаций шире 80 мм рекомендуется использовать конструкцию пола с применением материала Шумопласт</span>
+            </div>
+            <div class="inputsC2K2" v-else-if="template == 610.1">
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F610" checked><label class="label">К2 по периметру</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F610_vibrostek"><label class="label">Вибростек по периметру</label>
             </div>
             <div class="inputsC2K2" v-else-if="template == 2.1">
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" checked><label class="label">Акуфлор S20 по периметру</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label">Вибростек по периметру</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F" checked><label class="label">Акуфлор S20 по периметру</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F_vibrostek"><label class="label">Вибростек по периметру</label>
                 <hr>
                 <h4>длина коммуникаций шириной до 80 мм</h4>
                 <input type="number" placeholder="размер,мм" >
@@ -74,22 +90,22 @@
             <div class="inputsFloor615" v-else-if="template == 3">
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" checked><label class="label" >&nbsp; с применением материала Silomer</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label">&nbsp; с применением опор Виброфлекс</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F615" checked><label class="label" >&nbsp; с применением материала Silomer</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F615_vibroflex"><label class="label">&nbsp; с применением опор Виброфлекс</label>
             </div>
             <div class="inputsFloorSplast" v-else-if="template == 9">
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" checked><label class="label" >толщина слоя 20 мм</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label">толщина слоя 30 мм</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label">толщина слоя 40 мм</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F606" checked><label class="label" >толщина слоя 20 мм</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F606_30"><label class="label" >толщина слоя 30 мм</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n3" name ="name" value="AG.F606_40"><label class="label" >толщина слоя 40 мм</label>
             </div>
             <div class="inputsTehno" v-else-if="template == 9.1">
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" checked><label class="label" >Шумостоп-Техно 350</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label" >Шумостоп-Техно 600</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"><label class="label" >Шумостоп-Техно 1200</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F612" checked><label class="label" >Шумостоп-Техно 350</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F612_600"><label class="label" >Шумостоп-Техно 600</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n3" name ="name" value="AG.F612_1200"><label class="label" >Шумостоп-Техно 1200</label>
             </div>
             <div class="ceilingZips" v-else-if="template == 4">
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
@@ -119,7 +135,7 @@
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 3 м)</label>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 3,5 м)</label>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 4 м)</label>
-                <input class="checkbox" type="checkbox" id = "n4" name ="name"><label class="label"> добавить сдвоенный каркас </label>
+                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="name"><label class="label"> добавить сдвоенный каркас </label>
                 <hr>
                 <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
                 <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
@@ -136,7 +152,7 @@
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 3,5 м)</label>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 4 м)</label>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 4,5 м)</label>
-                <input class="checkbox" type="checkbox" id = "n4" name ="name"><label class="label"> добавить сдвоенный каркас</label>
+                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="name"><label class="label"> добавить сдвоенный каркас</label>
                 <hr>
                 <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
                 <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
@@ -153,7 +169,7 @@
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600"checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 4,25 м)</label>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 5 м)</label>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 5,5 м)</label>
-                <input class="checkbox" type="checkbox" id = "n4" name ="name"><label class="label"> добавить сдвоенный каркас</label>
+                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="name"><label class="label"> добавить сдвоенный каркас</label>
                 <hr>
                 <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
                 <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
@@ -186,7 +202,7 @@
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 4 м)</label>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 5 м)</label>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 6 м)</label>
-                <input class="checkbox" type="checkbox" id = "n4" name ="name"><label class="label">добавить сдвоенный каркас</label>
+                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="name"><label class="label">добавить сдвоенный каркас</label>
                 <hr>
                 <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
                 <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
@@ -203,7 +219,7 @@
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 5,5 м)</label>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 6,5 м)</label>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 7,5 м)</label>
-                <input class="checkbox" type="checkbox" id = "n4" name ="name"><label class="label">добавить сдвоенный каркас</label>
+                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="name"><label class="label">добавить сдвоенный каркас</label>
                 <hr>
                 <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
                 <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
@@ -220,7 +236,7 @@
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 6,5 м)</label>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7,5 м)</label>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8,5 м)</label>
-                <input class="checkbox" type="checkbox" id = "n4" name ="name"><label class="label">добавить сдвоенный каркас</label>
+                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="name"><label class="label">добавить сдвоенный каркас</label>
                 <hr>
                 <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
                 <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">

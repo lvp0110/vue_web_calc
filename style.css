@@ -99,11 +99,11 @@ button {
     box-shadow: none;
     font-size: 0; 
     width: 25px;
-    height: 10px;
+    height: 1px;
     text-align: center;
     background: none;
     position: absolute;
-    z-index: 22;
+    /* z-index: 22; */
 }
 
 .counter_input{

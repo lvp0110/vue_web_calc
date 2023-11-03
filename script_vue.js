@@ -2,6 +2,7 @@ const App = {
     data()
     {
         return {
+            
             errorMessage:'true',
             tableConstrToCalc:null,
             counterConstr: 0,
@@ -11,7 +12,9 @@ const App = {
             currentItems: 0,
             template:null,
             profileStep: 600,
+            dFrame:false,
             counters:null,
+            currentConstr:'',
             ConstrToCalcToSent:[],
             ConstrToCalc: [],
             constR:{
@@ -19,10 +22,10 @@ const App = {
                 idType: '',
                 title: '',
                 type: '',
-                lenX: 0,
-                lenXp: 0,
-                lenY: 0,
-                lenZ: 0,
+                lenX: null,
+                lenXp: null,
+                lenY: null,
+                lenZ: null,
                 lenZp: null,
                 description: '',
                 img: '',
@@ -35,9 +38,9 @@ const App = {
                 idType: '',
                 title: '',
                 type: '',
-                lenX: 0,
-                lenY: 0,
-                lenZ: 0,
+                lenX: null,
+                lenY: null,
+                lenZ: null,
                 description: '',
                 img: '',
                 step: null,
@@ -400,7 +403,7 @@ const App = {
                     title: 'Пол Шумостоп-С2/К2, один слой',
                     description: 'Звукоизолирующий пол с одним слоем системы плит Шумостоп-С2/К2',
                     c_id:'F',
-                    template:2 ,
+                    template: 607.1 ,
                     img: 'img/Img_constr/floor/c2k2_1.png',
                     ag_id: 'AG.F607'
                 },
@@ -409,7 +412,7 @@ const App = {
                     title: 'Пол Шумостоп-С2/К2, два слоя',
                     description: 'Звукоизолирующий пол с двумя слоями системы плит Шумостоп-С2/К2',
                     c_id:'F',
-                    template:2.2 ,
+                    template:608.1 ,
                     img: 'img/Img_constr/floor/c2k2_2.png',
                     ag_id: 'AG.F608'
                 },
@@ -418,7 +421,7 @@ const App = {
                     title: 'Пол Шумостоп-К2, один слой',
                     description: 'Звукоизолирующий пол с одним слоем материала Шумостоп-К2',
                     c_id:'F',
-                    template:2 ,
+                    template:609.1 ,
                     img: 'img/Img_constr/floor/k2_1.png',
                     ag_id: 'AG.F609'
                 },
@@ -427,7 +430,7 @@ const App = {
                     title: 'Пол Шумостоп-К2, два слоя',
                     description: 'Звукоизолирующий пол с двумя слоями материала Шумостоп-К2',
                     c_id:'F',
-                    template:2.2 ,
+                    template:610.1 ,
                     img: 'img/Img_constr/floor/k2_2.png',
                     ag_id: 'AG.F610'
                 },
@@ -579,7 +582,11 @@ const App = {
             {
                 this.template = element.template;
                 this.tableConstrToCalc = 1;
+                this.currentConstr = element.ag_id;
+                
             });
+            
+            
                 return item;
             }
                 this.template = null;
@@ -597,11 +604,12 @@ const App = {
     methods: {
         setConstrFromCalcToSent(){
                 this.constR.step = +this.profileStep;
-                this.constrSent.Code = this.constR.ag_id;
+                this.constrSent.Code = this.currentConstr;
                 this.constrSent.LenX = this.constR.lenX;
                 this.constrSent.LenY = this.constR.lenY;
                 this.constrSent.LenZ = this.constR.lenZ;
                 this.constrSent.step = this.constR.step;
+                this.constrSent.dframe = this.dFrame;
         },
         delConstrFromList(idConstr)
         {   
@@ -612,9 +620,6 @@ const App = {
             // this.ConstrToCalc = this.ConstrToCalc.filter((el) => el.key_id != idConstr)
             this.calcConstruction(this.ConstrToCalcToSent);
 
-            console.log(idConstr);
-            console.log(indexToDel);
-            console.log(this.ConstrToCalc);
         },
         checkInput(){
 
@@ -712,7 +717,7 @@ const App = {
                 this.constR.step = StepProfile.step;
                 
                 this.setConstrFromCalcToSent();
-               
+                console.log(this.currentConstr);
                 // this.constrSent.dframe = this.constR.description;
                 // this.constrSent.Area = this.constR.ag_id;
                 // this.constrSent.Perimeter = this.constR.Perimeter;
