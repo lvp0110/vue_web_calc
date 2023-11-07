@@ -596,6 +596,8 @@ const App = {
                 this.currentItems = 0;
                 this.template = null;
                 this.visible =false;
+                this.dFrame = false;
+
                 this.constR = { ...this.constRZero};
         },
       
@@ -729,7 +731,7 @@ const App = {
                 this.ConstrToCalc.push({...this.constR}); 
                 console.log(this.ConstrToCalc);
                 this.constR = { ...this.constRZero};
-
+                this.dFrame = false;
                 this.calcConstruction(this.ConstrToCalcToSent);
                 console.log(this.ConstrToCalcToSent);
                 
