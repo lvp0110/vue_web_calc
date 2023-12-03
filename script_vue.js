@@ -56,7 +56,12 @@ const App = {
                 Area    :  0,
                 Perimeter: 0,
                 step    :  0,
-
+                Openings: [],
+            },
+            opening:{
+                lenX: null,
+                lenZ: null,
+                Type: 'OST_Doors',
             },
             constSentZero:{
                 Code    :  '',
@@ -67,7 +72,7 @@ const App = {
                 Area    :  0,
                 Perimeter: 0,
                 step    :  0,
-
+                Openings: [],
             },
             Categories: [
                 { id: 1, title: 'РЕШЕНИЯ ПО ЗВУКОИЗОЛЯЦИИ',background:'#248CB9' },
@@ -600,10 +605,22 @@ const App = {
 
                 this.constR = { ...this.constRZero};
         },
+       
       
     },
     
     methods: {
+        delFromOpenings(index){
+            this.constrSent.Openings.splice(index, 1);
+        },
+        getOpeningType(Type){
+            if(Type == 'OST_Doors') return 'дверь'
+            return 'окно'
+        },
+        addOpening(){
+                this.constrSent.Openings.push({...this.opening});
+                console.log(this.constrSent.Openings);
+        },
         setConstrFromCalcToSent(){
                 this.constR.step = +this.profileStep;
                 this.constrSent.Code = this.currentConstr;
@@ -692,7 +709,7 @@ const App = {
         } ,
         calcConstruction(constrList)
         {
-            this.request('http://158.160.77.34:3005/api/v1/calcQuantity', 'post', constrList, (data) => this.calculatedMaterials = data)
+            this.request('http://158.160.73.203:3005/api/v1/calcQuantity', 'post', constrList, (data) => this.calculatedMaterials = data)
         },
         addConstrToCalc() 
         {
