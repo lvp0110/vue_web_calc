@@ -36,136 +36,156 @@
                     <img v-if="template == null" :src="elem.img" alt="" class="img-icon">
                 </button>
             </div>
-            <div class="inputsFloorAll" v-if="template == 1">
+            <div class="inputsFloorAll" v-if="template == 1"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
             </div>
-            <div class="inputsFloorAll" v-if="template == 111">
+            <div class="inputsFloorAll" v-if="template == 111"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
             </div>
-            <div class="inputsC2K2" v-else-if="template == 607.1">
+            <div class="inputsC2K2" v-else-if="template == 607.1"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F607" checked><label class="label">К2 по периметру</label>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F607_vibrostek"><label class="label">Вибростек по периметру</label>
                 <hr>
-                <h4>длина коммуникаций шириной до 80 мм</h4>
+            </div>
+                <!-- <h4>длина коммуникаций шириной до 80 мм</h4>
                 <input type="number" placeholder="размер,мм">
-                <span>✔ для коммукникаций шире 80 мм рекомендуется использовать конструкцию пола с применением материала Шумопласт</span>
+                <span>✔ для коммукникаций шире 80 мм рекомендуется использовать конструкцию пола с применением материала Шумопласт</span> -->
             </div>
             <div class="inputsC2K2" v-else-if="template == 608.1">
+                 <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F608" checked><label class="label">К2 по периметру</label>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F608_vibrostek"><label class="label">Вибростек по периметру</label>
+                </div>
             </div>
-            <div class="inputsC2K2" v-else-if="template == 609.1">
+            <div class="inputsC2K2" v-else-if="template == 609.1"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F609" checked><label class="label">К2 по периметру</label>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F609_vibrostek"><label class="label">Вибростек по периметру</label>
                 <hr>
-                <h4>длина коммуникаций шириной до 80 мм</h4>
-                <input type="number" placeholder="размер,мм">
-                <span>✔ для коммукникаций шире 80 мм рекомендуется использовать конструкцию пола с применением материала Шумопласт</span>
             </div>
-            <div class="inputsC2K2" v-else-if="template == 610.1">
+                <!-- <h4>длина коммуникаций шириной до 80 мм</h4>
+                <input type="number" placeholder="размер,мм">
+                <span>✔ для коммукникаций шире 80 мм рекомендуется использовать конструкцию пола с применением материала Шумопласт</span> -->
+            </div>
+            <div class="inputsC2K2" v-else-if="template == 610.1"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F610" checked><label class="label">К2 по периметру</label>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F610_vibrostek"><label class="label">Вибростек по периметру</label>
             </div>
-            <div class="inputsC2K2" v-else-if="template == 2.1">
+            </div>
+            <div class="inputsC2K2" v-else-if="template == 2.1"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F" checked><label class="label">Акуфлор S20 по периметру</label>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F_vibrostek"><label class="label">Вибростек по периметру</label>
                 <hr>
-                <h4>длина коммуникаций шириной до 80 мм</h4>
-                <input type="number" placeholder="размер,мм" >
-                <span>✔ для коммукникаций шире 80 мм рекомендуется использовать конструкцию пола с применением материала Шумопласт</span>
             </div>
-            <div class="inputsFloor615" v-else-if="template == 3">
+                
+                <!-- <h4>длина коммуникаций шириной до 80 мм</h4>
+                <input type="number" placeholder="размер,мм" >
+                <span>✔ для коммукникаций шире 80 мм рекомендуется использовать конструкцию пола с применением материала Шумопласт</span> -->
+            </div>
+            <div class="inputsFloor615" v-else-if="template == 3"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
-                <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <input type="number" placeholder="длина,мм" v-model="constR.lenY"> 
+                <h4 style="margin: 5px ;">тип конструкции</h4>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F615" checked><label class="label" >&nbsp; с применением материала Silomer</label>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F615_vibroflex"><label class="label">&nbsp; с применением опор Виброфлекс</label>
             </div>
-            <div class="inputsFloorSplast" v-else-if="template == 9">
+            <div class="inputsFloorSplast" v-else-if="template == 9"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <h4 style="margin: 5px ;">тип конструкции</h4>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F606" checked><label class="label" >толщина слоя 20 мм</label>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F606_30"><label class="label" >толщина слоя 30 мм</label>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n3" name ="name" value="AG.F606_40"><label class="label" >толщина слоя 40 мм</label>
             </div>
-            <div class="inputsTehno" v-else-if="template == 9.1">
+            </div>
+            <div class="inputsTehno" v-else-if="template == 9.1"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <h4 style="margin: 5px ;">тип конструкции</h4>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F612" checked><label class="label" >Шумостоп-Техно 350</label>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F612_600"><label class="label" >Шумостоп-Техно 600</label>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n3" name ="name" value="AG.F612_1200"><label class="label" >Шумостоп-Техно 1200</label>
             </div>
-            <div class="ceilingZips" v-else-if="template == 4">
+            <div class="ceilingZips" v-else-if="template == 4"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
             </div>
-            <div class="ceiling" v-else-if="template == 5">
+            <div class="ceiling" v-else-if="template == 5"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY">
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
                 <h4> дополнительный отступ конструкции от перекрытия</h4>
                 <input type="number" placeholder="размер,мм">
-                <hr>
-                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <hr></div>
+
+                <!-- <h4> замена Саундлайн dB на Аку-лайн</h4>
                 <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n8" name ="name1" checked><label class="label">материал Саундлайн dB</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label> -->
             </div>
-            <div class="frameZips" v-else-if="template == 6">
+            <div class="frameZips" v-else-if="template == 6"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
                 <hr>
-                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
-                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
-            </div>
-            <div class="frame50" v-else-if="template == 50">
-                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
-                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
-                    <h4 style="margin: 10px;"> выбрать парaметры конструкции</h4>
-                     <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
-                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 3 м)</label>
-                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 3,5 м)</label>
-                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 4 м)</label>
-                    <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="steps_name"><label class="label"> добавить сдвоенный каркас </label>
-                    <hr>
-                    <h4 style="margin: 10px;">введите размер проема</h4>
-                   
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                    <h4 style="margin: 1px;">размер проема</h4>
                     <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
                     <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
-
+                    <h4 style="margin: 1px;">тип проема</h4>
                     <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
-                    <label class="label">Дверь</label> 
-                  
+                    <label class="label">дверь</label> 
                     <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
-                    <label class="label"  >Окно</label>
-                   
-                    <button class="counter__button_plus" @click="addOpening()">добавить проем</button>
-                    <hr> 
-
-     
+                    <label class="label" >окно</label> 
+                    <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
                         <table class="data">
                             <tr>
-                                <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div>
-                                <th colspan="3" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                                <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                                <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                                <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
                             </tr>
                             <tr>
                                 <th>тип</th>
-                                
                                 <th>ширина</th>
                                 <th >высота</th>  
                                 <th> </th>
                             </tr>
                             <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
-                                <td style="text-align: right;">{{getOpeningType(opening.Type)}}</td>
+                                <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
                                 <td style="text-align: center;">{{opening.lenX}}</td>
                                 <td style="text-align: center;">{{opening.lenZ}}</td>
                                 <td >
@@ -175,199 +195,649 @@
                                 </td>
                             </tr>
                         </table>
-                   
+                </div>
+            </div>
+            
+            <div class="frame50" v-else-if="template == 50">
+                <h4 style="margin: 5px ;">размер конструкции</h4>
+                <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
+                <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
+
+                    <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                    <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                    <span style="font-size: 14px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 3 м)</label>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 3,5 м)</label>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 4 м)</label>
+                    <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="steps_name"><label class="label"> добавить сдвоенный каркас </label>
+                    <hr>
+                    <h4 style="margin: 1px;">размер проема</h4>
+                    <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
+                    <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
+                    <h4 style="margin: 1px;">тип проема</h4>
+                    <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
+                    <label class="label">дверь</label> 
+                    <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
+                    <label class="label" >окно</label> 
+                    <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
+                        <table class="data">
+                            <tr>
+                                <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                                <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                                <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                            </tr>
+                            <tr>
+                                <th>тип</th>
+                                <th>ширина</th>
+                                <th >высота</th>  
+                                <th> </th>
+                            </tr>
+                            <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
+                                <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
+                                <td style="text-align: center;">{{opening.lenX}}</td>
+                                <td style="text-align: center;">{{opening.lenZ}}</td>
+                                <td >
+                                    <input  type="button" class="counter__button_minus" > 
+                                        <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delFromOpenings(index)">
+                                    </input>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 <!-- <h4> замена Саундлайн dB на Аку-лайн</h4>
                 <input class="radio" type="radio" @change ="materialReplacement  = $event.target.value" id = "n8" name ="name1" checked ><label class="label">материал Саундлайн dB </label>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн </label>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн </label> -->
                 
             </div>
-            <div class="frame75" v-else-if="template == 75">
+            <div class="frame75" v-else-if="template == 75"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
-                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name"value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 3,5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 4 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 4,5 м)</label>
-                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="name"><label class="label"> добавить сдвоенный каркас</label>
-                <hr>
-                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
-                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
-                <hr>
 
-                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                <span style="font-size: 14px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 3,5  м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 4 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 4,5 м)</label>
+                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="steps_name"><label class="label"> добавить сдвоенный каркас </label>
+                <hr>
+                <h4 style="margin: 1px;">размер проема</h4>
+                <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
+                <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
+                <h4 style="margin: 1px;">тип проема</h4>
+                <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
+                <label class="label">дверь</label> 
+                <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
+                <label class="label" >окно</label> 
+                <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
+                    <table class="data">
+                        <tr>
+                            <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                            <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                            <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                        </tr>
+                        <tr>
+                            <th>тип</th>
+                            <th>ширина</th>
+                            <th >высота</th>  
+                            <th> </th>
+                        </tr>
+                        <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
+                            <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
+                            <td style="text-align: center;">{{opening.lenX}}</td>
+                            <td style="text-align: center;">{{opening.lenZ}}</td>
+                            <td >
+                                <input  type="button" class="counter__button_minus" > 
+                                    <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delFromOpenings(index)">
+                                </input>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- <h4> замена Саундлайн dB на Аку-лайн</h4>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" checked><label class="label">материал Саундлайн dB</label>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
-                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label> -->
 
             </div>
-            <div class="frame100" v-else-if="template == 100">
+            <div class="frame100" v-else-if="template == 100"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
-                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600"checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 4,25 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 5,5 м)</label>
-                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="name"><label class="label"> добавить сдвоенный каркас</label>
-                <hr>
-                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
-                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
-                <hr>
-                <h4> замена Саундлайн dB на Аку-лайн</h4>
+
+                    <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                    <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                    <span style="font-size: 14px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 4,25 м)</label>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 5 м)</label>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 5,5 м)</label>
+                    <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="steps_name"><label class="label"> добавить сдвоенный каркас </label>
+                    <hr>
+                    <h4 style="margin: 1px;">размер проема</h4>
+                    <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
+                    <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
+                    <h4 style="margin: 1px;">тип проема</h4>
+                    <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
+                    <label class="label">дверь</label> 
+                    <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
+                    <label class="label" >окно</label> 
+                    <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
+                        <table class="data">
+                            <tr>
+                                <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                                <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                                <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                            </tr>
+                            <tr>
+                                <th>тип</th>
+                                <th>ширина</th>
+                                <th >высота</th>  
+                                <th> </th>
+                            </tr>
+                            <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
+                                <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
+                                <td style="text-align: center;">{{opening.lenX}}</td>
+                                <td style="text-align: center;">{{opening.lenZ}}</td>
+                                <td >
+                                    <input  type="button" class="counter__button_minus" > 
+                                        <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delFromOpenings(index)">
+                                    </input>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                <!-- <h4> замена Саундлайн dB на Аку-лайн</h4>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" checked ><label class="label">материал Саундлайн dB</label>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
-                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label> -->
             </div>
-            <div class="frameVibr" v-else-if="template == 101">
+            <div class="frameVibr" v-else-if="template == 101"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
-                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм</span>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n5" name ="name" value="600" checked><label  class="label">шаг профиля 600 мм<br>(макс.высота конструкции 10 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n6" name ="name" value="400"><label  class="label">шаг профиля 400 мм<br>(макс.высота конструкции 10 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n7" name ="name" value="300"><label  class="label">шаг профиля 300 мм<br>(макс.высота конструкции 10 м)</label>
-                <hr>
-                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
-                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
-                <hr>
-                <h4> замена Саундлайн dB на Аку-лайн</h4>
+
+                    <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                    <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                    <span style="font-size: 14px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 10  м)</label>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 10 м)</label>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 10 м)</label>
+                   
+                    <hr>
+                    <h4 style="margin: 1px;">размер проема</h4>
+                    <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
+                    <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
+                    <h4 style="margin: 1px;">тип проема</h4>
+                    <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
+                    <label class="label">дверь</label> 
+                    <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
+                    <label class="label" >окно</label> 
+                    <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
+                        <table class="data">
+                            <tr>
+                                <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                                <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                                <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                            </tr>
+                            <tr>
+                                <th>тип</th>
+                                <th>ширина</th>
+                                <th >высота</th>  
+                                <th> </th>
+                            </tr>
+                            <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
+                                <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
+                                <td style="text-align: center;">{{opening.lenX}}</td>
+                                <td style="text-align: center;">{{opening.lenZ}}</td>
+                                <td >
+                                    <input  type="button" class="counter__button_minus" > 
+                                        <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delFromOpenings(index)">
+                                    </input>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                <!-- <h4> замена Саундлайн dB на Аку-лайн</h4>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" value="600" checked><label class="label">материал Саундлайн dB</label>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1" value="400"><label class="label">замена на 1 лист Аку-лайн</label>
-                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label> -->
             </div>
             <div class="partittion50" v-else-if="template == 50.1">
+                 <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
-                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 4 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 6 м)</label>
-                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="name"><label class="label">добавить сдвоенный каркас</label>
-                <hr>
-                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
-                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
-                <hr>
-                <h4> замена Саундлайн dB на Аку-лайн</h4>
+
+                
+                    <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                    <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                    <span style="font-size: 14px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 4 м)</label>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 5 м)</label>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 6 м)</label>
+                    <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="steps_name"><label class="label"> добавить сдвоенный каркас </label>
+                    <hr>
+                    <h4 style="margin: 1px;">размер проема</h4>
+                    <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
+                    <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
+                    <h4 style="margin: 1px;">тип проема</h4>
+                    <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
+                    <label class="label">дверь</label> 
+                    <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
+                    <label class="label" >окно</label> 
+                    <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
+                        <table class="data">
+                            <tr>
+                                <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                                <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                                <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                            </tr>
+                            <tr>
+                                <th>тип</th>
+                                <th>ширина</th>
+                                <th >высота</th>  
+                                <th> </th>
+                            </tr>
+                            <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
+                                <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
+                                <td style="text-align: center;">{{opening.lenX}}</td>
+                                <td style="text-align: center;">{{opening.lenZ}}</td>
+                                <td >
+                                    <input  type="button" class="counter__button_minus" > 
+                                        <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delFromOpenings(index)">
+                                    </input>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                <!-- <h4> замена Саундлайн dB на Аку-лайн</h4>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" value="600" checked><label class="label">материал Саундлайн dB</label>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
-                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label> -->
             </div>
             <div class="partittion75" v-else-if="template == 75.1">
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
-                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 5,5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 6,5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 7,5 м)</label>
-                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="name"><label class="label">добавить сдвоенный каркас</label>
-                <hr>
-                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
-                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
-                <hr>
-                <h4> замена Саундлайн dB на Аку-лайн</h4>
+
+       
+                    <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                    <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                    <span style="font-size: 14px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 5,5  м)</label>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 6,5 м)</label>
+                    <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 7,5 м)</label>
+                    <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="steps_name"><label class="label"> добавить сдвоенный каркас </label>
+                    <hr>
+                    <h4 style="margin: 1px;">размер проема</h4>
+                    <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
+                    <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
+                    <h4 style="margin: 1px;">тип проема</h4>
+                    <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
+                    <label class="label">дверь</label> 
+                    <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
+                    <label class="label" >окно</label> 
+                    <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
+                        <table class="data">
+                            <tr>
+                                <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                                <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                                <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                            </tr>
+                            <tr>
+                                <th>тип</th>
+                                <th>ширина</th>
+                                <th >высота</th>  
+                                <th> </th>
+                            </tr>
+                            <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
+                                <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
+                                <td style="text-align: center;">{{opening.lenX}}</td>
+                                <td style="text-align: center;">{{opening.lenZ}}</td>
+                                <td >
+                                    <input  type="button" class="counter__button_minus" > 
+                                        <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delFromOpenings(index)">
+                                    </input>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+              
+
+                <!-- <h4> замена Саундлайн dB на Аку-лайн</h4>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1"  checked><label class="label">материал Саундлайн dB</label>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
-                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label> -->
             </div>
             <div class="partittion100" v-else-if="template == 100.1">
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
-                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 6,5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7,5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8,5 м)</label>
-                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="name"><label class="label">добавить сдвоенный каркас</label>
+
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                <span style="font-size: 14px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 6,5  м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8,5 м)</label>
+                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="steps_name"><label class="label"> добавить сдвоенный каркас </label>
                 <hr>
-                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
-                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
-                <hr>
-                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <h4 style="margin: 1px;">размер проема</h4>
+                <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
+                <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
+                <h4 style="margin: 1px;">тип проема</h4>
+                <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
+                <label class="label">дверь</label> 
+                <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
+                <label class="label" >окно</label> 
+                <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
+                    <table class="data">
+                        <tr>
+                            <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                            <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                            <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                        </tr>
+                        <tr>
+                            <th>тип</th>
+                            <th>ширина</th>
+                            <th >высота</th>  
+                            <th> </th>
+                        </tr>
+                        <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
+                            <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
+                            <td style="text-align: center;">{{opening.lenX}}</td>
+                            <td style="text-align: center;">{{opening.lenZ}}</td>
+                            <td >
+                                <input  type="button" class="counter__button_minus" > 
+                                    <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delFromOpenings(index)">
+                                </input>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                
+
+                <!-- <h4> замена Саундлайн dB на Аку-лайн</h4>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" checked><label class="label">материал Саундлайн dB</label>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
-                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label> -->
             </div>
             <div class="partittionWave" v-else-if="template == 101.1">
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
-                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм</span>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n5" name ="name" value="600" checked><label class="label">шаг профиля 600 мм<br>(макс.высота конструкции 6,5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n6" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7,5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n7" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8,5 м)</label>
+
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                <span style="font-size: 14px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 6,5  м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8,5 м)</label>
+                
                 <hr>
-                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
-                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
-                <hr>
-                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <h4 style="margin: 1px;">размер проема</h4>
+                <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
+                <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
+                <h4 style="margin: 1px;">тип проема</h4>
+                <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
+                <label class="label">дверь</label> 
+                <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
+                <label class="label" >окно</label> 
+                <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
+                    <table class="data">
+                        <tr>
+                            <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                            <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                            <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                        </tr>
+                        <tr>
+                            <th>тип</th>
+                            <th>ширина</th>
+                            <th >высота</th>  
+                            <th> </th>
+                        </tr>
+                        <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
+                            <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
+                            <td style="text-align: center;">{{opening.lenX}}</td>
+                            <td style="text-align: center;">{{opening.lenZ}}</td>
+                            <td >
+                                <input  type="button" class="counter__button_minus" > 
+                                    <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delFromOpenings(index)">
+                                </input>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+               
+
+                <!-- <h4> замена Саундлайн dB на Аку-лайн</h4>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" value="600" checked><label class="label">материал Саундлайн dB</label>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1" value="400"><label class="label">замена на 1 лист Аку-лайн</label>
-                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1" value="300"><label class="label">замена на 2 листа Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1" value="300"><label class="label">замена на 2 листа Аку-лайн</label> -->
             </div>
             <div class="partittion50.2" v-else-if="template == 50.2">
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
-                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм</span>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n5" name ="name" value="600" checked><label class="label">шаг профиля 600 мм<br>(макс.высота конструкции 4,5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n6" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 5,5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n7" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 6,5 м)</label>
+
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                <span style="font-size: 14px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 4,5  м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 5,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 6,5 м)</label>
+                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="steps_name"><label class="label"> добавить сдвоенный каркас </label>
                 <hr>
-                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
-                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
-                <hr>
-                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <h4 style="margin: 1px;">размер проема</h4>
+                <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
+                <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
+                <h4 style="margin: 1px;">тип проема</h4>
+                <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
+                <label class="label">дверь</label> 
+                <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
+                <label class="label" >окно</label> 
+                <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
+                    <table class="data">
+                        <tr>
+                            <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                            <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                            <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                        </tr>
+                        <tr>
+                            <th>тип</th>
+                            <th>ширина</th>
+                            <th >высота</th>  
+                            <th> </th>
+                        </tr>
+                        <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
+                            <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
+                            <td style="text-align: center;">{{opening.lenX}}</td>
+                            <td style="text-align: center;">{{opening.lenZ}}</td>
+                            <td >
+                                <input  type="button" class="counter__button_minus" > 
+                                    <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delFromOpenings(index)">
+                                </input>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                
+                <!-- <h4> замена Саундлайн dB на Аку-лайн</h4>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" checked ><label class="label">материал Саундлайн dB</label>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
-                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label> -->
             </div>
-            <div class="partittion75.2" v-else-if="template == 75.2">
+            <div class="partittion75.2" v-else-if="template == 75.2"> 
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
-                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм</span>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n5" name ="name" value="600" checked ><label class="label">шаг профиля 600 мм<br>(макс.высота конструкции 6 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n6" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n7" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8 м)</label>
+
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                <span style="font-size: 14px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 6  м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8 м)</label>
+                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="steps_name"><label class="label"> добавить сдвоенный каркас </label>
                 <hr>
-                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
-                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
-                <hr>
-                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <h4 style="margin: 1px;">размер проема</h4>
+                <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
+                <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
+                <h4 style="margin: 1px;">тип проема</h4>
+                <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
+                <label class="label">дверь</label> 
+                <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
+                <label class="label" >окно</label> 
+                <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
+                    <table class="data">
+                        <tr>
+                            <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                            <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                            <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                        </tr>
+                        <tr>
+                            <th>тип</th>
+                            <th>ширина</th>
+                            <th >высота</th>  
+                            <th> </th>
+                        </tr>
+                        <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
+                            <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
+                            <td style="text-align: center;">{{opening.lenX}}</td>
+                            <td style="text-align: center;">{{opening.lenZ}}</td>
+                            <td >
+                                <input  type="button" class="counter__button_minus" > 
+                                    <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delFromOpenings(index)">
+                                </input>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+               
+                <!-- <h4> замена Саундлайн dB на Аку-лайн</h4>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" checked ><label class="label">материал Саундлайн dB</label>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
-                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label> -->
             </div>
             <div class="partittion100.2" v-else-if="template == 100.2">
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
-                <span style="font-size: 12px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм</span>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n5" name ="name" value="600" checked ><label class="label">шаг профиля 600 мм<br>(макс.высота конструкции 6,5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n6" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7,5 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n7" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8,5 м)</label>
+
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                <span style="font-size: 14px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 6,5  м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 7,5 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 8,5 м)</label>
+                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="steps_name"><label class="label"> добавить сдвоенный каркас </label>
                 <hr>
-                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
-                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
-                <hr>
-                <h4> замена Саундлайн dB на Аку-лайн</h4>
+                <h4 style="margin: 1px;">размер проема</h4>
+                <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
+                <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
+                <h4 style="margin: 1px;">тип проема</h4>
+                <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
+                <label class="label">дверь</label> 
+                <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
+                <label class="label" >окно</label> 
+                <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
+                    <table class="data">
+                        <tr>
+                            <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                            <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                            <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                        </tr>
+                        <tr>
+                            <th>тип</th>
+                            <th>ширина</th>
+                            <th >высота</th>  
+                            <th> </th>
+                        </tr>
+                        <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
+                            <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
+                            <td style="text-align: center;">{{opening.lenX}}</td>
+                            <td style="text-align: center;">{{opening.lenZ}}</td>
+                            <td >
+                                <input  type="button" class="counter__button_minus" > 
+                                    <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delFromOpenings(index)">
+                                </input>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- <h4> замена Саундлайн dB на Аку-лайн</h4>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n8" name ="name1" checked ><label class="label">материал Саундлайн dB</label>
                 <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n9" name ="name1"><label class="label">замена на 1 лист Аку-лайн</label>
-                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label>
+                <input class="radio" type="radio" @change ="materialReplacement   = $event.target.value" id = "n10" name ="name1"><label class="label">замена на 2 листа Аку-лайн</label> -->
             </div>
             <div class="framedBx" v-else-if="template == 8.1">
+                <h4 style="margin: 5px ;">размер конструкции</h4>
                 <input type="number" placeholder="ширина,мм" v-model="constR.lenX">
                 <input type="number" placeholder="высота,мм" v-model="constR.lenZ">
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n5" name ="name" value="600" checked><label class="label">шаг профиля 600 мм<br>(макс.высота конструкции 3 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n6" name ="name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 4 м)</label>
-                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n7" name ="name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 5 м)</label>
+                
+                <button class="counter__button_param" style="margin-bottom:10px ;" @click="getStartParam()"> изменить парaметры конструкции</button>
+                <div  style="display: contents; top: 10px;margin-bottom:20px;" v-if="unvisible">
+                <span style="font-size: 14px;"> ✔ шаг профиля при облицовке керамической плиткой не более 400 мм </span>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n1" name ="steps_name" value="600" checked><label class="label">шаг профиля 600 мм <br>(макс.высота конструкции 3  м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n2" name ="steps_name" value="400"><label class="label">шаг профиля 400 мм<br>(макс.высота конструкции 4 м)</label>
+                <input class="radio" type="radio" @change ="profileStep  = $event.target.value" id = "n3" name ="steps_name" value="300"><label class="label">шаг профиля 300 мм<br>(макс.высота конструкции 5 м)</label>
+                <input class="checkbox" type="checkbox" @change ="dFrame = dFrame ? false : true" id = "n4" name ="steps_name"><label class="label"> добавить сдвоенный каркас </label>
                 <hr>
-                <input type="number" placeholder="ширина проема,мм" v-model="constR.lenXp">
-                <input type="number" placeholder="высота проема,мм" v-model="constR.lenZp">
+                <h4 style="margin: 1px;">размер проема</h4>
+                <input type="number" placeholder="ширина проема,мм" v-model="opening.lenX">
+                <input type="number" placeholder="высота проема,мм" v-model="opening.lenZ">
+                <h4 style="margin: 1px;">тип проема</h4>
+                <input class="radio" type="radio" @change ="opening.Type = $event.target.value" id = "doors" name ="opening_name" value="OST_Doors" checked> 
+                <label class="label">дверь</label> 
+                <input class="radio"  type="radio" @change ="opening.Type = $event.target.value" id = "wind" name ="opening_name" value="OST_Windows" >
+                <label class="label" >окно</label> 
+                <button class="counter__button_param" style="right: 2px;" @click="addOpening()">добавить проем</button><hr>
+                    <table class="data">
+                        <tr>
+                            <!-- <div v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</div> -->
+                            <th v-for="opening in constrSent.Openings" class="counter_input">{{constrSent.Openings.length}}</th>
+                            <th colspan="4" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок проемов</th>
+                        </tr>
+                        <tr>
+                            <th>тип</th>
+                            <th>ширина</th>
+                            <th >высота</th>  
+                            <th> </th>
+                        </tr>
+                        <tr v-for="(opening,index ) in constrSent.Openings" :key="index">
+                            <td style="text-align: center;">{{getOpeningType(opening.Type)}}</td>
+                            <td style="text-align: center;">{{opening.lenX}}</td>
+                            <td style="text-align: center;">{{opening.lenZ}}</td>
+                            <td >
+                                <input  type="button" class="counter__button_minus" > 
+                                    <img src="img/biggarbagebin_121980.svg" alt="" style="height: 13px;opacity: 0.7;" @click="delFromOpenings(index)">
+                                </input>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
             </div>
             
             <div>
-                <button v-if="template != null" @click="addConstrToCalc" class="counter__button_plus">вывести расчет конструкции</button>
+                <button v-if="template != null" @click="addConstrToCalc" class="counter__button_plus"> расчет конструкции</button>
             </div> 
             <div  v-if="tableConstrToCalc != null" class="tbl-in"><hr>
                 <table class="data">
                     <tr>
-                        <div v-for="counterConstr in ConstrToCalc" class="counter_input">{{ConstrToCalc.length}}</div>
-                        <th colspan="2" style="font-size: 14px;font-weight: 500;border-right: solid 1px darkgray; ">cписок конструкций</th>
+                        <!-- <div v-for="counterConstr in ConstrToCalc" class="counter_input">{{ConstrToCalc.length}}</div> -->
+                        <th v-for="counterConstr in ConstrToCalc" class="counter_input">{{ConstrToCalc.length}}</th>
+                        <th colspan="2" style="font-size: 14px;font-weight: 500; text-align: center;">cписок конструкций</th>
                     </tr>
                     <tr>
                         <th>шифр</th>
@@ -391,7 +861,7 @@
             <div  v-if="tableConstrToCalc != null" class="tbl-in"><hr>
                 <table class="data">
                     <tr >
-                        <th colspan="5" style="font-size: 14px;font-weight: 500;">cписок материалов</th>
+                        <th colspan="5" style="font-size: 14px;font-weight: 500;text-align: center;">cписок материалов</th>
                     </tr>
                     <tr>
                         <th>№</th>

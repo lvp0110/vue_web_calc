@@ -8,7 +8,7 @@ body{
 }
 .sweet-overlay {
     background-color: black;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+    /* -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"; */
     background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
     left: 0;
@@ -107,16 +107,16 @@ button {
 }
 
 .counter_input{
-    border:solid 1px grey;
-    position:absolute;
-    color: aliceblue;
-    background: gray;
+    border: solid 1px darkgray;
+    position: absolute;
+    color: gray;
+    background: rgb(225 226 227);
     margin-left: 308px;
     height: 15px;
     width: 15px;
     text-align: center;
-    margin-top: -46px;
-    border-radius: 25%; 
+    margin-top: -48px;
+    border-radius: 25%;
     font-size: 12px;
 }
 .type_page {
@@ -238,6 +238,14 @@ span{
     border-radius: 8px;
     border: solid 1px rgb(184, 178, 178);
 }
+.counter__button_param{
+    width: 100%;
+    height: 35px;
+    border-radius: 8px;
+    border: solid 1px #6d7277;
+    color: #6d7277;
+    background: rgb(225 226 227);
+}
 .add_design_button{
     width: 50%;
     height: 35px;
@@ -260,6 +268,24 @@ body{
 }
 .sweet-alert button {
     left: 30px;
+}
+} 
+@media screen and (max-width: 400px) {
+/* div{
+    width: 340px;
+    margin-left: 20px;
+    top: 60px;
+    position: relative; 
+}
+body{
+    background: url(img/back_ground.jpg) ;
+    background-size: 100%;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0px ;
+    margin: 0px;
+} */
+.sweet-alert button {
+    left: -25px;
 }
 } 
 

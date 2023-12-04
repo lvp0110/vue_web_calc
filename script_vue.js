@@ -2,7 +2,7 @@ const App = {
     data()
     {
         return {
-            
+            unvisible:false,
             errorMessage:'true',
             tableConstrToCalc:null,
             counterConstr: 0,
@@ -73,6 +73,11 @@ const App = {
                 Perimeter: 0,
                 step    :  0,
                 Openings: [],
+            },
+            openingZero:{
+                lenX: null,
+                lenZ: null,
+                Type: 'OST_Doors',
             },
             Categories: [
                 { id: 1, title: 'РЕШЕНИЯ ПО ЗВУКОИЗОЛЯЦИИ',background:'#248CB9' },
@@ -552,7 +557,7 @@ const App = {
     },
 
     computed: {
-    
+       
         getActiveCategories()
         {
             if(this.currentCategory != 0)
@@ -610,6 +615,10 @@ const App = {
     },
     
     methods: {
+        getStartParam(){
+
+            this.unvisible = !this.unvisible;
+        },
         delFromOpenings(index){
             this.constrSent.Openings.splice(index, 1);
         },
@@ -620,6 +629,7 @@ const App = {
         addOpening(){
                 this.constrSent.Openings.push({...this.opening});
                 console.log(this.constrSent.Openings);
+                this.opening = {...this.openingZero};
         },
         setConstrFromCalcToSent(){
                 this.constR.step = +this.profileStep;
@@ -744,13 +754,14 @@ const App = {
 
                 this.ConstrToCalcToSent.push({...this.constrSent});
                 this.constrSent = { ...this.constSentZero};
-
+                this.opening = {...this.openingZero};
                 this.ConstrToCalc.push({...this.constR}); 
                 console.log(this.ConstrToCalc);
                 this.constR = { ...this.constRZero};
                 this.dFrame = false;
                 this.calcConstruction(this.ConstrToCalcToSent);
                 console.log(this.ConstrToCalcToSent);
+                this.unvisible = false;
                 
             }
             
