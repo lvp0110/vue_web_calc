@@ -73,6 +73,13 @@ body{
     left: 7px;
     filter: drop-shadow(2px 3px 3px #96b3cd);
 }
+.logo-short{
+    height: 50px;
+    position: absolute;
+    top: 7px;
+    right: 1px ;
+    filter: drop-shadow(2px 3px 3px #96b3cd);
+}
 div{
     width: 340px;
     margin: auto;
@@ -125,6 +132,7 @@ button {
     position: relative;
     width: 48.7%;
     margin-left: 3px;
+    z-index: 1;
 }
 .const_page{
     top: 10px;
@@ -134,6 +142,7 @@ button {
     display: inline-grid;
     margin-left: 3px;
     font-size: 12px;
+    z-index: 1;
 }
 button:hover{
     opacity: 0.8;

@@ -615,6 +615,14 @@ const App = {
     },
     
     methods: {
+        filterVariable(variable) {
+            // Проверяем, является ли первый символ цифрой
+            if (/^\d/.test(variable)) {
+              return variable;
+            } else {
+              return "---";
+            }
+          },
         getStartParam(){
 
             this.unvisible = !this.unvisible;
@@ -733,6 +741,7 @@ const App = {
                 // let Id = this.Items.find((el)=>el.id == this.currentItems); 
                 // this.constR.id = Id.id;
                 this.constR.key_id = Date.now();
+                
                 let Constr = this.Items.find((el)=>el.id == this.currentItems); 
                 this.constR.title = Constr.title;
 
