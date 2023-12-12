@@ -74,10 +74,10 @@ body{
     filter: drop-shadow(2px 3px 3px #96b3cd);
 }
 .logo-short{
-    height: 50px;
+    height: 80px;
     position: absolute;
-    top: 7px;
-    right: 1px ;
+    top: 1px;
+    right: 15px ;
     filter: drop-shadow(2px 3px 3px #96b3cd);
 }
 div{

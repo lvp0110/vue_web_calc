@@ -727,7 +727,7 @@ const App = {
         } ,
         calcConstruction(constrList)
         {
-            this.request('http://158.160.73.203:3005/api/v1/calcQuantity', 'post', constrList, (data) => this.calculatedMaterials = data)
+            this.request('http://4d05-95-46-2-180.ngrok-free.app/api/v1/calcQuantity', 'post', constrList, (data) => this.calculatedMaterials = data)
         },
         addConstrToCalc() 
         {

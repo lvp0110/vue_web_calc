@@ -14,7 +14,7 @@
     </head>
     <body>
         <a href="https://www.acoustic.ru/"><img class="logo" src="img/logo AG-01.svg" alt="" ></a>
-        <a href="https://www.acoustic.ru/"><img class="logo-short" src="img/logo11.png" alt="" ></a>
+        <a href="https://www.acoustic.ru/"><img class="logo-short" src="img/logo_123.png" alt="" ></a>
         <section id="app" >
             <div class="category">
                 <button v-for="elem in getActiveCategories" :value="elem.id" :style="{background:elem.background}"
@@ -117,7 +117,7 @@
                 <input type="number" placeholder="длина,мм" v-model="constR.lenY"> 
                 <h4 style="margin: 5px ;">тип конструкции</h4>
                 <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n2" name ="name" value="AG.F615" checked><label class="label" >&nbsp; с применением материала Silomer</label>
-                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F615_vibroflex"><label class="label">&nbsp; с применением опор Виброфлекс</label>
+                <input class="radio" type="radio" @change ="currentConstr  = $event.target.value" id = "n1" name ="name" value="AG.F615_vibroflex_LD"><label class="label">&nbsp; с применением опор Виброфлекс</label>
             </div>
             <div class="inputsFloorSplast" v-else-if="template == 9"> 
                 <h4 style="margin: 5px ;">размер конструкции</h4>
