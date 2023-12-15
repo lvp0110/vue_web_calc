@@ -67,7 +67,7 @@ body{
 
 }
 .logo{
-    height: 100px;
+    height: 90px;
     position: absolute;
     top: 7px;
     left: 10px;
@@ -75,11 +75,12 @@ body{
     z-index: 11;
 }
 .logo-short{
-    height: 100px;
-    position: absolute;
+    height: 90px;
+    position: fixed;
     top: 5px;
     right: 15px ;
     filter: drop-shadow(2px 3px 3px #96b3cd);
+    z-index: 11;
 }
 div{
     width: 340px;
@@ -92,7 +93,7 @@ button {
     width: 100%;
     height: 120px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     border-radius: 10px;
     margin: 1px;
     margin-top: 5px;
