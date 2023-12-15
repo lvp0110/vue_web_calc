@@ -67,23 +67,24 @@ body{
 
 }
 .logo{
-    height: 50px;
+    height: 100px;
     position: absolute;
     top: 7px;
-    left: 7px;
+    left: 5px;
     filter: drop-shadow(2px 3px 3px #96b3cd);
+    z-index: 11;
 }
 .logo-short{
     height: 80px;
     position: absolute;
-    top: 1px;
+    top: 0px;
     right: 15px ;
     filter: drop-shadow(2px 3px 3px #96b3cd);
 }
 div{
     width: 340px;
     margin: auto;
-    top: 60px;
+    top: 110px;
     position: relative;
     font-family: 'Montserrat', sans-serif;
 }
