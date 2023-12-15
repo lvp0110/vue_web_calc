@@ -70,14 +70,14 @@ body{
     height: 100px;
     position: absolute;
     top: 7px;
-    left: 5px;
+    left: 10px;
     filter: drop-shadow(2px 3px 3px #96b3cd);
     z-index: 11;
 }
 .logo-short{
-    height: 80px;
+    height: 100px;
     position: absolute;
-    top: 0px;
+    top: 5px;
     right: 15px ;
     filter: drop-shadow(2px 3px 3px #96b3cd);
 }
