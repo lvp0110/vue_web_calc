@@ -775,14 +775,20 @@ const App = {
             }
             
             else{
-                swal({
-                    title: "<small > </small>",
-                    text:  this.checkInput(),
-                    imageUrl: "img/logo_A.png",
-                    html: true,
-                    imageSize:"120x120",
-                    confirmButtonColor:"#248cb9",
-                    // customClass:null,
+                // swal({
+                //     title: "<small > </small>",
+                //     text:  this.checkInput(),
+                //     imageUrl: "img/logo_A.png",
+                //     html: true,
+                //     imageSize:"120x120",
+                //     confirmButtonColor:"#248cb9",
+                //     // customClass:null,
+                //   });
+                Swal.fire({
+                    html: this.checkInput(),
+                    imageWidth: 150,
+                    imageHeight: 50,
+                    imageUrl: "img/logo_A.png" 
                   });
             }
         },   
