@@ -88,7 +88,7 @@ const App = {
                 { id: 'C', title: 'ПОТОЛОК', c_id: 1 ,img:'img/icon_ceiling_white.svg',imgBlack:'img/icon_ceiling.svg'},
                 { id: 'L', title: 'ОБЛИЦОВКА', c_id: 1 ,img:'img/icon_frame_white.svg',imgBlack:'img/icon_frame.svg'},
                 { id: 'W', title: 'ПЕРЕГОРОДКА', c_id: 1 ,img:'img/icon_partition_white.svg',imgBlack:'img/icon_partittion.svg'},
-                { id: 5, title: 'РАЗДЕЛ В РАЗРАБОТКЕ', c_id: 2 },
+                { id: 5, title: 'РАЗДЕЛ В РАЗРАБОТКЕ', c_id: 2 ,img: 'img/Img_constr/partition/partition_50.webp'},
                 { id: 6, title: 'SECTION UNDER DEVELOPMENT', c_id: 2 },
             ],
         
@@ -727,7 +727,7 @@ const App = {
         } ,
         calcConstruction(constrList)
         {
-            this.request('http://4d05-95-46-2-180.ngrok-free.app/api/v1/calcQuantity', 'post', constrList, (data) => this.calculatedMaterials = data)
+            this.request('http://cbe0-95-0-251-3.ngrok-free.app/api/v1/calcQuantity', 'post', constrList, (data) => this.calculatedMaterials = data)
         },
         addConstrToCalc() 
         {

@@ -17,7 +17,7 @@ body{
     /* text-decoration: underline; */
 }
 .logo{
-    height: 90px;
+    height: 70px;
     position: absolute;
     top: 7px;
     left: 10px;
@@ -25,7 +25,7 @@ body{
     z-index: 11;
 }
 .logo-short{
-    height: 90px;
+    height: 70px;
     position: fixed;
     top: 5px;
     right: 15px ;
