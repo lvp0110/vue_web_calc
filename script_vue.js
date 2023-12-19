@@ -771,6 +771,7 @@ const App = {
                 this.calcConstruction(this.ConstrToCalcToSent);
                 console.log(this.ConstrToCalcToSent);
                 this.unvisible = false;
+                this.profileStep =600;
                 
             }
             
