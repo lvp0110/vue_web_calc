@@ -844,7 +844,7 @@
                 <button v-if="template != null" @click="addConstrToCalc" class="counter__button_plus"> расчет конструкции</button>
             </div> 
             <div  v-if="tableConstrToCalc != null" class="tbl-in"><hr>
-                <table class="data">
+                <table class="data" >
                     <tr>
                         <!-- <div v-for="counterConstr in ConstrToCalc" class="counter_input">{{ConstrToCalc.length}}</div> -->
                         <th v-for="counterConstr in ConstrToCalc" class="counter_input">{{ConstrToCalc.length}}</th>
@@ -870,7 +870,7 @@
                 </table>
             </div>
             <div  v-if="tableConstrToCalc != null" class="tbl-in"><hr>
-                <table class="data">
+                <table class="data" id="table1">
                     <tr >
                         <th colspan="5" style="font-size: 14px;font-weight: 500;text-align: center;">cписок материалов</th>
                     </tr>
@@ -881,27 +881,37 @@
                         <th>ед.изм</th>
                     </tr>
                     <tr v-for="Material in calculatedMaterials.data">
-                        <td>{{ filterVariable(Material.Code)}}</td>
-                        <td>{{ Material.Name}}</td>
+                        <td data-t="s">{{ filterVariable(Material.Code)}}</td>
+                        <td data-t="">{{ Material.Name}}</td>
                         <td>{{ Material.Quantity}}</td>
                         <td>{{ Material.Units}}</td>
                     </tr>
-                </table>
+                </table> 
             </div> 
             <div>
-                <button v-if="template != null" onClick="tableToExcel()" class="add_design_button"> сохранить в Excel </button>
+                <button v-if="template != null" onClick="tableExcel()" class="add_design_button"> сохранить в Excel </button>
             </div>
         </section>
 
         <script src="https://unpkg.com/vue@next"></script>
         <script src="script_vue.js"></script>
-        <script src="table2excel.js"></script>
 
+        <script src="https://cdn.jsdelivr.net/npm/@linways/table-to-excel@1.0.4/dist/tableToExcel.min.js"></script>
+        <script type="text/javascript" src="../dist/tableToExcel.js"></script>
+        <script>
+            function tableExcel(){
+                TableToExcel.convert(document.getElementById("table1"));
+            }
+            
+            
+        </script>
+
+        <!-- <script src="table2excel.js"></script>
         <script>
             function tableToExcel(){
                 var table2excel = new Table2Excel();
                 table2excel.export(document.querySelectorAll("table.data"));
             }
-        </script>
+        </script> -->
     </body>
 </html>

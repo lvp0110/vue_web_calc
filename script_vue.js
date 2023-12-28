@@ -257,7 +257,7 @@ const App = {
                     c_id:'C',
                     template:4,
                     img: 'img/Img_constr/ceiling/ceiling_z4.webp',
-                    ag_id: 'AG.L204'
+                    ag_id: 'AG.Z204'
                 },
                 {
                     id:205, 
@@ -266,7 +266,7 @@ const App = {
                     c_id:'C',
                     template:4,
                     img: 'img/Img_constr/ceiling/ceiling_z_cinema.webp',
-                    ag_id: 'AG.L205'
+                    ag_id: 'AG.Z205'
                 },
                 {
                     id: 401, 
@@ -727,7 +727,7 @@ const App = {
         } ,
         calcConstruction(constrList)
         {
-            this.request('http://cbe0-95-0-251-3.ngrok-free.app/api/v1/calcQuantity', 'post', constrList, (data) => this.calculatedMaterials = data)
+            this.request('http://158.160.73.203:3005/api/v1/calcQuantity', 'post', constrList, (data) => this.calculatedMaterials = data)
         },
         addConstrToCalc() 
         {
